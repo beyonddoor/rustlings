@@ -8,7 +8,7 @@ fn trim_me(input: &str) -> String {
 
 fn compose_me(input: &str) -> String {
     // TODO: Add " world!" to the string! There's multiple ways to do this!
-    input.to_string()+&"world"
+    input.to_string()+&" world!"
 }
 
 fn replace_me(input: &str) -> String {

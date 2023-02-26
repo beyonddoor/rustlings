@@ -18,10 +18,6 @@
 // - The output element is going to be a Vector of strings.
 // No hints this time!
 
-// I AM NOT DONE
-
-use std::vec;
-
 pub enum Command {
     Uppercase,
     Trim,
@@ -32,11 +28,23 @@ mod my_module {
     use super::Command;
 
     // TODO: Complete the function signature!
-    pub fn transformer(input: (string, Command)) -> vec {
+    pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
         // TODO: Complete the output declaration!
-        let mut output: vec<string> = vec![];
+        let mut output: Vec<String> = Vec::new();
         for (string, command) in input.iter() {
             // TODO: Complete the function body. You can do it!
+            let res = match command {
+                Command::Uppercase => string.to_uppercase(),
+                Command::Trim => string.trim().to_string(),
+                Command::Append(size) => {
+                    let mut str = string.clone();
+                    for _ in 0..*size {
+                        str.push_str("bar");
+                    }
+                    str
+                }
+            };
+            output.push(res);
         }
         output
     }
